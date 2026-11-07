@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# 用户数据（本来就在 %APPDATA%\DaysMatterWidget，这里兜底忽略）
+config.json
+holiday-cache.json
+lunar-cache.json
+.welcomed

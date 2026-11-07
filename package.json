@@ -1,0 +1,71 @@
+{
+  "name": "days-matter-widget",
+  "productName": "纪念日摆件",
+  "version": "1.0.0",
+  "description": "Days Matter 风格的纪念日倒计时桌面摆件",
+  "main": "main.js",
+  "private": true,
+  "author": "Days Matter Widget",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "prebuild": "npm run prepare-assets",
+    "prepare-assets": "node scripts/copy-lunar.js && powershell -NoProfile -ExecutionPolicy Bypass -File make-icon.ps1",
+    "build": "electron-builder --win --x64",
+    "build:portable": "electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "31.7.7",
+    "electron-builder": "24.13.3",
+    "lunar-javascript": "1.7.8"
+  },
+  "build": {
+    "appId": "com.daysmatter.widget",
+    "productName": "纪念日摆件",
+    "electronVersion": "31.7.7",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "renderer/lib/lunar.js",
+      "assets/icon.png",
+      "assets/icon.ico",
+      "README.md",
+      "!**/node_modules/**",
+      "!**/*.ps1",
+      "!scripts/**",
+      "!assets/preview*.png",
+      "!assets/card-holiday.png",
+      "!assets/settings-ui.png",
+      "!assets/holiday-settings.png",
+      "!assets/form-*.png",
+      "!assets/net-sync.png"
+    ],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "纪念日摆件",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true,
+      "artifactName": "${productName}-${version}-安装包.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-便携版.${ext}"
+    }
+  }
+}

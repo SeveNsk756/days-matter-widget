@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>纪念日设置</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <img class="tb-icon" src="../assets/icon.png" alt="" />
+    <span class="tb-title">纪念日设置</span>
+    <div class="tb-btns">
+      <button class="tb-btn" id="winMin" title="最小化" aria-label="最小化">
+        <svg viewBox="0 0 10 10"><path d="M1.2 5h7.6"/></svg>
+      </button>
+      <button class="tb-btn" id="winMax" title="最大化" aria-label="最大化">
+        <svg class="ico-max" viewBox="0 0 10 10"><rect x="1.7" y="1.7" width="6.6" height="6.6"/></svg>
+        <svg class="ico-restore" viewBox="0 0 10 10"><rect x="1" y="3.1" width="5.9" height="5.9"/><path d="M3.1 3.1V2.2a1.2 1.2 0 0 1 1.2-1.2h3.3a1.2 1.2 0 0 1 1.2 1.2v3.3a1.2 1.2 0 0 1-1.2 1.2h-.9"/></svg>
+      </button>
+      <button class="tb-btn tb-close" id="winClose" title="关闭" aria-label="关闭">
+        <svg viewBox="0 0 10 10"><path d="M2.2 2.2l5.6 5.6M7.8 2.2l-5.6 5.6"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="page">
+    <header class="head">
+      <div>
+        <h1>纪念日</h1>
+        <p class="sub" id="subline">摆件上会显示这些日子</p>
+      </div>
+    </header>
+
+    <section class="block">
+      <div class="list" id="list"></div>
+      <button class="add" id="addBtn">
+        <span class="plus">＋</span> 添加一个纪念日
+      </button>
+    </section>
+
+    <section class="block">
+      <div class="block-title">外观</div>
+      <div class="row">
+        <label class="row-label">主题</label>
+        <div class="segmented" id="themeSeg">
+          <button data-val="dark" class="seg">深色</button>
+          <button data-val="light" class="seg">浅色</button>
+        </div>
+      </div>
+      <div class="row">
+        <label class="row-label">尺寸</label>
+        <div class="segmented" id="scaleSeg">
+          <button data-val="0.8" class="seg">小</button>
+          <button data-val="1" class="seg">中</button>
+          <button data-val="1.25" class="seg">大</button>
+          <button data-val="1.5" class="seg">特大</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-title">法定节假日</div>
+      <div class="toggle-row">
+        <div>
+          <div class="t-title">显示中国法定节假日</div>
+          <div class="t-desc">春节、清明等日期取自官方历法数据，和自定义纪念日一起切换</div>
+        </div>
+        <label class="switch"><input type="checkbox" id="swHoliday" /><span class="track"></span></label>
+      </div>
+      <div class="holiday-grid" id="holidayGrid"></div>
+      <div class="net-row">
+        <div class="net-info">
+          <div class="t-title">联网同步放假安排</div>
+          <div class="t-desc" id="netStatus">还没同步过</div>
+        </div>
+        <button class="mini" id="syncBtn">立即同步</button>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-title">行为</div>
+      <div class="toggle-row">
+        <div>
+          <div class="t-title">始终置顶</div>
+          <div class="t-desc">压在其它窗口上方，随时能看见</div>
+        </div>
+        <label class="switch"><input type="checkbox" id="swTop" /><span class="track"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div>
+          <div class="t-title">锁定位置</div>
+          <div class="t-desc">锁住后不能被拖动，防手滑</div>
+        </div>
+        <label class="switch"><input type="checkbox" id="swLock" /><span class="track"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div>
+          <div class="t-title">把今天也算一天</div>
+          <div class="t-desc">今天计入天数，天数会比默认多 1</div>
+        </div>
+        <label class="switch"><input type="checkbox" id="swToday" /><span class="track"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div>
+          <div class="t-title">显示日期小字</div>
+          <div class="t-desc">卡片底部显示目标日期和星期</div>
+        </div>
+        <label class="switch"><input type="checkbox" id="swMeta" /><span class="track"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div>
+          <div class="t-title">开机自动启动</div>
+          <div class="t-desc">登录 Windows 后自动出现在桌面上</div>
+        </div>
+        <label class="switch"><input type="checkbox" id="swAuto" /><span class="track"></span></label>
+      </div>
+    </section>
+  </div>
+
+  <script src="lib/lunar.js"></script>
+  <script src="holiday.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

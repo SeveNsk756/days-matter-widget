@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>纪念日</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stage">
+    <div class="card" id="card">
+      <div class="glow"></div>
+      <div class="sheen"></div>
+
+      <div class="topbar">
+        <div class="dots" id="dots"></div>
+        <div class="tools">
+          <button class="tool" id="prev" title="上一个"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" /></svg></button>
+          <button class="tool" id="next" title="下一个"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg></button>
+          <button class="tool" id="gear" title="设置"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" /><path d="M12 3.5v2.2M12 18.3v2.2M4.6 12h2.2M17.2 12h2.2M6.7 6.7l1.6 1.6M15.7 15.7l1.6 1.6M17.3 6.7l-1.6 1.6M8.3 15.7l-1.6 1.6" /></svg></button>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="label" id="label">距离「元旦」还有</div>
+        <div class="figure">
+          <span class="num" id="num">0</span>
+          <span class="unit" id="unit">天</span>
+        </div>
+        <div class="meta" id="meta">2027-01-01 · 周五</div>
+      </div>
+
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+
+  <script src="lib/lunar.js"></script>
+  <script src="holiday.js"></script>
+  <script src="widget.js"></script>
+</body>
+</html>

@@ -13,6 +13,13 @@
 - **安装版**：`DaysMatterWidget-26.1.0-Setup.exe`，可以选安装目录，带卸载程序
 - **便携版**：`DaysMatterWidget-26.1.0-Portable.exe`，双击直接跑，不写注册表、不留痕
 
+直链（右键另存或直接点）：
+
+- 安装版 <https://github.com/SeveNsk756/days-matter-widget/releases/download/v26.1.0/DaysMatterWidget-26.1.0-Setup.exe>
+- 便携版 <https://github.com/SeveNsk756/days-matter-widget/releases/download/v26.1.0/DaysMatterWidget-26.1.0-Portable.exe>
+
+全部历史版本见 [Releases](https://github.com/SeveNsk756/days-matter-widget/releases)。
+
 **系统要求**：Windows 10（1809 及以上）/ Windows 11，64 位。Windows 7 / 8 / 8.1 用不了——Electron 31 本身已不再支持这几个系统。
 
 **安装包里不含任何个人数据**：你加的纪念日、位置、主题、节假日缓存都写在 `%APPDATA%\DaysMatterWidget`，发行版里只有程序本身。卸载时不会删这些数据，重新装回来还在。
